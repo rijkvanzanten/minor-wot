@@ -52,9 +52,9 @@ if (document.querySelector('.index')) {
 
   socket.on('TWEET', tweet => {
     const flashyTweet = tweet.replace('#luaus_live', '<span class="flash-text">#luaus_live</span>');
-    document.querySelector('#tweet').innerHTML = flashyTweet;
+    data.lastTweet = flashyTweet;
+    return update('index');
   });
-
 } else if (document.querySelector('.controller')) {
   replaceView('controller');
   document.querySelector('form').addEventListener('submit', onButtonPress);
